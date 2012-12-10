@@ -1,0 +1,2 @@
+[data-behaviour="radio-group"] input[type="radio"] { display: none }
+[data-behaviour="radio-group"] li.selected a:before { content: 's'; position: absolute; left: 5px; }

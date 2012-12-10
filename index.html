@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Add-ons for Bootstrap, from Twitter</title>
+  <link href="vendor/css/bootstrap.css" rel="stylesheet">
+  <link href="css/radio-group.css" rel="stylesheet">
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]-->
+        </head>
+
+        <body>
+          <div class="container">
+            <section id="typeahead">
+              <div class="page-header">
+                <h1>Add-ons for Bootstrap</h1>
+              </div>
+
+              <div class="row">
+                <div class="span4 columns">
+                </div>
+                <div class="span8 columns">
+                  <h2>Radio Group <small>radio-group.js</small></h2>
+                  <h3>About</h3>
+                  <p>
+                    Radio Group enables the radio and pseudo-radio input selection using bootstrap markup and hiding the usual form controls. It comes in two forms: in component mode, where inputs are <code>[type="radio"]</code> and live inside the element markup. Useful when making radio buttons out of dropdown lists. In its second form, it acts as a pseudo-radio input. This is useful when you have a <code>.btn-group</code> and you want to have a set of buttons to to change a hidden's input value.
+                  </p>
+
+                  <p>
+                    Either forms support initial values but, in the pseudo-radio input form, the selected value and subsequent selections are grabbed from the button's <code>value</code> attribute.
+                  </p>
+
+                  <p>
+                    Everytime an input changes, it still triggers the <code>change</code> event so that you can still handle additional workflows.
+                  </p>
+                  
+                  <h3>Attached to a button group</h3>
+                  <p>
+                    For the input to be properly changed you have to set <code>id="some_id"</code> and <code>data-behaviour="radio-group"</code> in the button group wrapper and <code>data-target-for="some_id"</code> in the hidden input you want to change using the button group. This won't break html validation as opposed to having <code>input</code> tags inside the <code>button</code> markup.
+                  </p>
+
+                  <div class="well">
+                    <div id="btn-group-radio" class="btn-group" data-behaviour="radio-group">
+                      <button type="button" class="btn" value="option1">Option 1</button>
+                      <button type="button" class="btn" value="option2">Option 2</button>
+                      <button type="button" class="btn" value="option3">Option 3</button>
+                    </div>
+                    <input type="hidden" name="btn-group" value="option1" data-target-for="btn-group-radio" />
+                  </div>
+                  <h4>Markup</h4>
+                  <pre>
+&lt;div id="btn-group-radio" class="btn-group" data-behaviour="radio-group"&gt;
+  &lt;button type="button" class="btn" value="option1"&gt;Option 1&lt;/button&gt;
+  &lt;button type="button" class="btn" value="option2"&gt;Option 2&lt;/button&gt;
+  &lt;button type="button" class="btn" value="option3"&gt;Option 3&lt;/button&gt;
+&lt;/div&gt;
+&lt;input type="hidden" name="btn-group" value="option1" data-target-for="btn-group-radio" /&gt;
+                  </pre>
+
+                  <h3>Attached to a dropdown menu</h3>
+                  <p>
+                    When working with dropdown menus you can keep the <code>input type="radio"</code> markup inside the <code>li</code> tags with any nesting level. In this case, the component simply hides the <code>input</code> markup by providing a prettier interface.
+                  </p>
+                  <div class="well">
+                    <div class="dropdown btn-group">
+                      <a class="dropdown-toggle btn" data-toggle="dropdown">Options</a>
+                      <ul class="dropdown-menu" data-behaviour="radio-group">
+                        <li>
+                          <a href="#">Option 1</a>
+                          <input type="radio" name="" value="option1" checked />
+                        </li>
+                        <li>
+                          <a href="#">Option 2</a>
+                          <input type="radio" name="" value="option2" />
+                        </li>
+                        <li>
+                          <a href="#">Option 3</a>
+                          <input type="radio" name="" value="option3" />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                                  <h4>Markup</h4>
+                <pre>
+
+&lt;div class="dropdown btn-group"&gt;
+  &lt;a class="dropdown-toggle btn" data-toggle="dropdown">Options&lt;/a&gt;
+  &lt;ul class="dropdown-menu" data-behaviour="radio-group"&gt;
+    &lt;li&gt;
+      &lt;a href="#"&gt;Option 1&lt;/a&gt;
+      &lt;input type="radio" name="" value="option1" checked /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href="#"&gt;Option 2&lt;/a&gt;
+      &lt;input type="radio" name="" value="option2" /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href="#"&gt;Option 3&lt;/a&gt;
+      &lt;input type="radio" name="" value="option3" /&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+                </pre>
+                
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <script src="vendor/js/jquery-1.8.3.min.js"></script>
+          <script src="vendor/js/bootstrap.min.js"></script>
+          <script src="js/radio-group.js"></script>
+          <script type="text/javascript">
+            $('[data-behaviour="radio-group"]').radioGroup()
+          </script>
+        </body>
+        </html>
