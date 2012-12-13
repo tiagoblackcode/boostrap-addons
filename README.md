@@ -21,3 +21,5 @@ Contributing
 4. Push to the branch (`git push origin my_new_feature`)
 5. Open a [Pull Request][1]
 6. Enjoy a refreshing Diet Coke and wait
+
+[1]: http://github.com/tiagoblackcode/boostrap-addons/pulls
