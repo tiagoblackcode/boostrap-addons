@@ -5,6 +5,7 @@
   <title>Add-ons for Bootstrap, from Twitter</title>
   <link href="vendor/css/bootstrap.css" rel="stylesheet">
   <link href="css/radio-group.css" rel="stylesheet">
+  <link href="css/confirm-popover.css" rel="stylesheet">
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,8 +85,7 @@
                   </div>
 
                                   <h4>Markup</h4>
-                <pre>
-
+<pre>
 &lt;div class="dropdown btn-group"&gt;
   &lt;a class="dropdown-toggle btn" data-toggle="dropdown">Options&lt;/a&gt;
   &lt;ul class="dropdown-menu" data-behaviour="radio-group"&gt;
@@ -103,19 +103,57 @@
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
-
-                </pre>
+</pre>
                 
-                </div>
+              
+                <h2>Confirm Popover <small>confirm-popover.js</small></h2>
+                  <h3>About</h3>
+                  <p>
+                    Confirm Popover plugins enables you to define actions that are only performed upon confirmation. The confirmation plugin uses the <small>bootstrap-popover.js</small> plugin to display a confirmation dialog to the user. It uses the same <code>data-</code> attributes as the popover plugin and also two additional attributes <code>data-ok-text</code> and <code>data-cancel-text</code> so it is possible for you to localize the dialog box.
+                  </p>
+
+                  <p>
+                     The <strong>OK</strong> button inherits the attributes white-listed in the array given as options or <code>data-attributes</code> so it behaves like the original confirmable link, after the user confirms the action on the dialog. These attributes can be passed in as options or as data attributes and may contain whatever you like.
+                  <p>
+                    This plugin is inspired by Rails' <code>data-confirm</code> attribute, but presented in a nicer, cleaner way.
+                  </p>
+
+                  <h3>Example</h3>
+                  <div class="well">
+                    <a href="javascript:alert('Remote action was called')" class="btn btn-danger" rel="confirm-popover" data-content="Are you really really sure?" data-ok-text="Yup!" data-cancel-text="Nope" data-remote="true" data-method="delete">
+                      Dangerous action
+                    </a>
+                  </div>
+                  <h4>Markup</h4>
+<pre>
+&lt;a href="javascript:alert('Remote action was called')" 
+   class="btn btn-danger" rel="confirm-popover" 
+   data-content="Are you really really sure?" 
+   data-ok-text="Yup!" data-cancel-text="Nope"&gt;
+  Dangerous action
+&lt;/a&gt;
+</pre>
+
+                  <h3>Usage</h3>
+                  <p>
+                    Like <code>bootstrap-popover.js</code> plugin, you hook the <code>confirm-popover.js</code> plugin using it's constructor, passing as argument the options you like. Similary, you can programaticaly show and hide the component, due to its inheritance from the <code>bootstrap-popover.js</code>
+                  </p>
+<pre>
+$('[rel*=confirm-popover]').confirmPopover(options)
+</pre>
               </div>
+            </div>
+
             </section>
           </div>
 
           <script src="vendor/js/jquery-1.8.3.min.js"></script>
           <script src="vendor/js/bootstrap.min.js"></script>
           <script src="js/radio-group.js"></script>
+          <script src="js/confirm-popover.js"></script>
           <script type="text/javascript">
             $('[data-behaviour="radio-group"]').radioGroup()
+            $('[rel*=confirm-popover]').confirmPopover()
           </script>
         </body>
         </html>
