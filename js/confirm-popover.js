@@ -8,7 +8,7 @@
 
   var ConfirmPopover = function (element, options) {
     this.init('confirmPopover', element, options)
-    this.$element.click( function(event){ event.preventDefault() } )
+    this.$element.click( $.proxy( this.handleClick, this ) )
   }
 
 
@@ -60,6 +60,11 @@
       this.tip().find('.popover-buttons .cancel-btn').click( $.proxy(this.cancel, this) )
     }
 
+  , handleClick : function(event) {
+      this.options.stopPropagation && event.stopPropagation()
+      this.options.preventDefault  && event.preventDefault()
+    }
+
   })
 
  /* CONFIRM-POPOVER PLUGIN DEFINITION
@@ -78,7 +83,9 @@
   $.fn.confirmPopover.Constructor = ConfirmPopover
 
   $.fn.confirmPopover.defaults = $.extend({} , $.fn.popover.defaults, {
-      placement         : 'top'
+      stopPropagation   : true
+    , preventDefault    : true
+    , placement         : 'top'
     , okText            : 'Ok'
     , cancelText        : 'Cancel'
     , copyAttributes    : [ 'href', 'data-method', 'data-remote' ]
